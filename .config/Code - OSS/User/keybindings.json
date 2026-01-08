@@ -1,0 +1,23 @@
+// Use MacOS like home-end keybindings
+[
+  {
+    "key": "alt+left",
+    "command": "cursorHome",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "home",
+    "command": "-cursorHome",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "alt+right",
+    "command": "cursorEnd",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "end",
+    "command": "-cursorEnd",
+    "when": "textInputFocus"
+  }
+]
