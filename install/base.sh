@@ -6,6 +6,7 @@ sudo pacman -Sy --needed --noconfirm \
     curl \
     fastfetch \
     git \
+    gum \
     less \
     neovim \
     wget \
