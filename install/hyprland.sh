@@ -5,6 +5,7 @@ sudo pacman -Sy --needed --noconfirm \
     hypridle \
     hyprland \
     hyprlock \
+    hyprpaper \
     hyprpicker \
     hyprpolkitagent \
     hyprshot \
@@ -16,7 +17,6 @@ sudo pacman -Sy --needed --noconfirm \
     pipewire-pulse \
     rofi \
     sddm \
-    swww \
     uwsm \
     waybar \
     wayland \
@@ -25,4 +25,5 @@ sudo pacman -Sy --needed --noconfirm \
     wl-clipboard \
     xdg-desktop-portal-gtk \
     xdg-desktop-portal-hyprland \
+    xdg-user-dirs \
     yazi

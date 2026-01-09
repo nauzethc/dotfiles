@@ -7,7 +7,7 @@
 }
 
 * {
-  font-family: CaskaydiaCove Nerd Font, JetBrains Mono, monospace;
+  font-family: JetBrainsMono Nerd Font, CaskaydiaCove Nerd Font, monospace;
   font-size: 14px;
   border: 0;
   border-radius: 0;
@@ -90,7 +90,8 @@
 #bluetooth,
 #cpu,
 #battery,
-#pulseaudio {
+#pulseaudio,
+#custom-nightlight {
   min-width: 1rem;
   margin: 0 .25rem;
   padding: 0 .5rem;

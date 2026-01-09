@@ -12,10 +12,12 @@
     "hyprland/window"
   ],
   "modules-right": [
+    "group/tray-expander",
     "bluetooth",
     "network",
     "pulseaudio",
     "cpu",
+    "custom/nightlight",
     "clock"
   ],
 
@@ -49,6 +51,20 @@
   // Windows
   "hyprland/window": {
     "format": "{title}"
+  },
+
+  // Nightlight
+  "custom/nightlight": {
+    "exec": "hypr-nightlight-status",
+    "on-click": "hypr-nightlight-toggle",
+    "interval": 60,
+    "return-type": "json",
+    "format": "{icon}",
+    "format-icons": {
+      "disabled": "",
+      "enabled": ""
+    },
+    "tooltip-format": "Night mode: {alt}"
   },
 
   // Bluetooth

@@ -16,6 +16,3 @@ OMARCHY_REPO="${OMARCHY_REPO:-basecamp/omarchy}"
 echo -e "\nCloning Omarchy from: https://github.com/${OMARCHY_REPO}.git"
 rm -rf ~/.local/share/omarchy/
 git clone "https://github.com/${OMARCHY_REPO}.git" ~/.local/share/omarchy >/dev/null
-
-# Setup ZSH
-cp .zshrc ~/.zshrc
