@@ -15,8 +15,13 @@ sudo pacman -Sy --needed --noconfirm \
     pipewire \
     pipewire-alsa \
     pipewire-pulse \
+    qt6-svg \
+    qt6-declarative \
+    qt5-quickcontrols2 \
     rofi \
+    satty \
     sddm \
+    slurp \
     uwsm \
     waybar \
     wayland \
