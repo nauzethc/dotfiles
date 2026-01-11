@@ -11,5 +11,6 @@ sudo pacman -Sy --needed --noconfirm \
     gum \
     less \
     neovim \
+    stow \
     wget \
     zsh

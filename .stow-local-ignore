@@ -1,0 +1,8 @@
+.git
+.gitconfig
+.gitignore
+assets
+install
+install.sh
+setup.sh
+README.md

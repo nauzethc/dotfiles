@@ -1,19 +1,26 @@
 #!/bin/bash
 
-# Setup ZSH
-cp .zshrc ~/.zshrc
+# Install packages
+source ./install/base.sh
+source ./install/development.sh
+source ./install/aur.sh
+source ./install/hyprland.sh
+source ./install/extra.sh
 
-# Copy configuration and wallpapers
-cp -r ./.config/* ~/.config/
-cp -r ./backgrounds/ ~/.config/
+# Hardware packages and tweaks
+source ./install/hardware/bluetooth.sh
+source ./install/hardware/input.sh
 
-# Copy scripts
-cp ./bin/* ~/.local/bin/
+# Get Omarchy to access scripts and helpers
+OMARCHY_REPO="${OMARCHY_REPO:-basecamp/omarchy}"
+echo -e "\nCloning Omarchy from: https://github.com/${OMARCHY_REPO}.git"
+rm -rf ~/.local/share/omarchy/
+git clone "https://github.com/${OMARCHY_REPO}.git" ~/.local/share/omarchy >/dev/null
 
-# Copy application launchers
+# Create intermediary directories to keep them with stow
+mkdir -p ~/.local/bin
 mkdir -p ~/.local/share/applications
-mkdir -p ~/.local/share/applications/icons
-cp -r applications/* ~/.local/share/applications/
+mkdir -p ~/.local/share/backgrounds
 
-# Set XDG settings
-xdg-settings set default-web-browser chromium.desktop
+# Deploy dotfiles with stow
+stow -T $HOME .
