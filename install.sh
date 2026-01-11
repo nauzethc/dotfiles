@@ -1,18 +1,11 @@
 #!/bin/bash
 
-# Install packages
-source ./install/base.sh
-source ./install/development.sh
-source ./install/aur.sh
-source ./install/hyprland.sh
-source ./install/extra.sh
+# Install git
+sudo pacman -Sy --noconfirm --needed git
 
-# Hardware packages and tweaks
-source ./install/hardware/bluetooth.sh
-source ./install/hardware/input.sh
+# Copy repo on your $HOME
+git clone git@github.com/nauzethc/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
 
-# Get Omarchy to access scripts and helpers
-OMARCHY_REPO="${OMARCHY_REPO:-basecamp/omarchy}"
-echo -e "\nCloning Omarchy from: https://github.com/${OMARCHY_REPO}.git"
-rm -rf ~/.local/share/omarchy/
-git clone "https://github.com/${OMARCHY_REPO}.git" ~/.local/share/omarchy >/dev/null
+# Install
+source setup.sh
