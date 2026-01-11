@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Lock the screen
+pidof hyprlock || hyprlock &
+
+sleep 1
+
+# Lock session
+loginctl lock-session
