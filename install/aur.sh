@@ -13,8 +13,11 @@ cd $CACHE_PATH/yay
 
 # Build package and install
 makepkg -si --noconfirm
+
+# Return to previous path
 cd $CURRENT
 
 # Install other deps
 yay -S --needed --noconfirm \
-  xdg-terminal-exec
+  xdg-terminal-exec \
+  wayfreeze
