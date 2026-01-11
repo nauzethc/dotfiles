@@ -34,6 +34,7 @@
 
 /* Workspaces */
 
+#custom-menu,
 #workspaces button {
   all: initial;
   padding: 0 .75rem;
@@ -42,6 +43,18 @@
   font-weight: bold;
   background-color: @surface1;
   opacity: 1;
+}
+
+#custom-menu {
+  border-radius: .75rem;
+  background-color: @overlay0;
+  color: @text;
+  padding: 0 1em;
+  margin-right: .75em;
+}
+
+#workspaces button {
+  opacity: 0.7;
 }
 
 #workspaces button:first-child {
