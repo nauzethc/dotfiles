@@ -106,7 +106,7 @@
     "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "tooltip-format": "{desc} {volume}%",
     "scroll-step": 5,
-    "interval": 2,
+    "max-volume": 100,
     "format": "{icon} {volume}%",
     "format-bluetooth": "󰂰 {volume}%",
     "format-muted": "",
