@@ -35,3 +35,5 @@ sudo pacman -Sy --needed --noconfirm \
     xdg-desktop-portal-hyprland \
     xdg-user-dirs \
     yazi
+
+sudo systemctl enable ssdm.service
