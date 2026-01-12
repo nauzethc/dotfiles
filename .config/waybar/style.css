@@ -53,10 +53,6 @@
   margin-right: .75em;
 }
 
-#workspaces button {
-  opacity: 0.7;
-}
-
 #workspaces button:first-child {
   border-radius: .75rem 0 0 .75rem;
 }
@@ -85,8 +81,13 @@
   background-color: @mauve;
 }
 
+#workspaces button.empty {
+  opacity: 0.7;
+  color: transparent;
+}
 #workspaces button.active {
   opacity: 1;
+  color: @surface0;
 }
 
 
