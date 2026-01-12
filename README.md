@@ -39,5 +39,5 @@ cd ~/.dotfiles
 or directly from your Archlinux fresh install with
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/nauzethc/dotfiles/main/setup.sh | bash
+curl -fsSL https://raw.githubusercontent.com/nauzethc/dotfiles/main/install.sh | bash
 ```

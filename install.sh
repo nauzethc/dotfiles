@@ -4,7 +4,7 @@
 sudo pacman -Sy --noconfirm --needed git
 
 # Copy repo on your $HOME
-git clone git@github.com/nauzethc/dotfiles.git ~/.dotfiles
+git clone https://github.com/nauzethc/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 
 # Install
