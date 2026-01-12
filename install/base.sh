@@ -5,12 +5,14 @@ sudo pacman -Sy --needed --noconfirm \
     bat \
     btop \
     curl \
+    dnsutils \
     fastfetch \
     fzf \
     git \
     gum \
     less \
     neovim \
+    net-tools \
     stow \
     wget \
     zsh

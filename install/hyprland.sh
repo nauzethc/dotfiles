@@ -1,5 +1,6 @@
 #!/bin/sh
 sudo pacman -Sy --needed --noconfirm \
+    adw-gtk-theme \
     dunst \
     ghostty \
     hypridle \
@@ -11,6 +12,8 @@ sudo pacman -Sy --needed --noconfirm \
     hyprshot \
     hyprsunset \
     hyprwire \
+    gthumb \
+    nautilus \
     noto-fonts \
     pipewire \
     pipewire-alsa \
