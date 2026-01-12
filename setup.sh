@@ -6,6 +6,7 @@ source ./install/development.sh
 source ./install/aur.sh
 source ./install/hyprland.sh
 source ./install/extra.sh
+source ./install/themes.sh
 
 # Hardware packages and tweaks
 source ./install/hardware/bluetooth.sh
@@ -21,6 +22,9 @@ git clone "https://github.com/${OMARCHY_REPO}.git" ~/.local/share/omarchy >/dev/
 mkdir -p ~/.local/bin
 mkdir -p ~/.local/share/applications
 mkdir -p ~/.local/share/backgrounds
+
+# Replace old zshrc config
+mv ~/.zshrc ~/.zshrc.original
 
 # Deploy dotfiles with stow
 stow -t $HOME .
