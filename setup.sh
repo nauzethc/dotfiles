@@ -23,4 +23,9 @@ mkdir -p ~/.local/share/applications
 mkdir -p ~/.local/share/backgrounds
 
 # Deploy dotfiles with stow
-stow -T $HOME .
+stow -t $HOME .
+
+# Set dark theme on GTK apps
+gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
+gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
