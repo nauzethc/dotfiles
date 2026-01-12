@@ -18,6 +18,6 @@ makepkg -si --noconfirm
 cd $CURRENT
 
 # Install other deps
-sudo yay -S --needed --noconfirm \
+yay -S --needed --noconfirm \
   xdg-terminal-exec \
   wayfreeze
