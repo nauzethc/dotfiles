@@ -36,4 +36,4 @@ sudo pacman -Sy --needed --noconfirm \
     xdg-user-dirs \
     yazi
 
-sudo systemctl enable ssdm.service
+sudo systemctl enable sddm.service
