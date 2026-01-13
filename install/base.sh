@@ -14,5 +14,10 @@ sudo pacman -Sy --needed --noconfirm \
     neovim \
     net-tools \
     stow \
+    util-linux \
     wget \
     zsh
+
+# Enable TRIM
+echo "Enabling TRIM timer..."
+sudo systemctl enable fstrim.timer

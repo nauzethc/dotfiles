@@ -2,6 +2,7 @@
 sudo pacman -Sy --needed --noconfirm \
     adw-gtk-theme \
     dunst \
+    evince \
     ghostty \
     hypridle \
     hyprland \
@@ -13,6 +14,8 @@ sudo pacman -Sy --needed --noconfirm \
     hyprsunset \
     hyprwire \
     gthumb \
+    imv \
+    mpv \
     nautilus \
     noto-fonts \
     pipewire \
