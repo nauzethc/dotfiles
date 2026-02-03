@@ -1,6 +1,7 @@
 #!/bin/sh
 sudo pacman -Sy --needed --noconfirm \
     adw-gtk-theme \
+    bluetui \
     dunst \
     evince \
     ghostty \

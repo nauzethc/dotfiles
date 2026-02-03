@@ -1,7 +1,5 @@
 #!/bin/sh
-sudo pacman -Sy --noconfirm \
-  bluez \
-  bluetui
+sudo pacman -Sy --noconfirm bluez
 
 # Enable service
 echo "Enabling Bluetooth service..."
