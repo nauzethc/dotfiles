@@ -1,8 +1,6 @@
 #!/bin/bash
 
-sudo pacman -S --needed --noconfirm \
-  git \
-  base-devel
+sudo pacman -S --needed --noconfirm git base-devel
 
 # Get yay package manager helper (AUR)
 CURRENT=$(pwd)
@@ -16,8 +14,3 @@ makepkg -si --noconfirm
 
 # Return to previous path
 cd $CURRENT
-
-# Install other deps
-yay -S --needed --noconfirm \
-  xdg-terminal-exec \
-  wayfreeze
