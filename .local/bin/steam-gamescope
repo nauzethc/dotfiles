@@ -1,0 +1,33 @@
+#!/bin/bash
+
+STEAM_CMD=$(command -v steam)
+GAMESCOPE_CMD=$(command -v gamescope)
+GAMEMODE_CMD=$(command -v gamemoderun)
+
+# Check Steam is installed
+if [[ -z $STEAM_CMD ]]; then
+  echo "Steam is not installed!"
+  exit 1
+fi
+
+# Check GameScope is installed
+if [[ -z $GAMESCOPE_CMD ]]; then
+  echo "GameScope is not installed!"
+  exit 1
+fi
+
+# Check if Steam is already running
+if pgrep $STEAM_CMD >/dev/null 2>&1; then
+  if [[ -n `ps ax | grep gamescopereaper | grep steam` ]]; then
+    echo "Steam is alredy running with GameScope"
+    exit 0
+  else
+    setsid steam steam://exit
+    echo "Closing Steam..."
+    while pgrep $STEAM_CMD >/dev/null 2>&1; do sleep 1; done
+  fi
+fi
+
+# Launch Steam UI session with Gamescope
+echo "Launching Steam with Gamescope..."
+$GAMEMODE_CMD $GAMESCOPE_CMD -H 1440 -r 120 --fullscreen --hdr-enabled --hdr-debug-force-output --adaptive-sync --steam --mangoapp -- $STEAM_CMD -steamdeck -steamos3 -gamepadui
