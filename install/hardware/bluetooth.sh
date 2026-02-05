@@ -1,5 +1,7 @@
 #!/bin/sh
-sudo pacman -Sy --noconfirm bluez
+
+# Install bluetooth stack and services
+sudo pacman -S --noconfirm bluez
 
 # Enable service
 echo "Enabling Bluetooth service..."

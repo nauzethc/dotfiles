@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Install Realtek 8125 driver to enable Wake-on-LAN
-yay -Sy --needed --noconfirm r8125-dkms
+sudo pacman -S --noconfirm --needed linux-headers
+yay -S --noconfirm r8125-dkms
 
 # Prevent kernel driver is loaded and enable WOL on device
 echo "Enabling Wake-on-LAN..."
