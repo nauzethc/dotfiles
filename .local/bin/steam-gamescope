@@ -1,33 +1,91 @@
 #!/bin/bash
 
-STEAM_CMD=$(command -v steam)
-GAMESCOPE_CMD=$(command -v gamescope)
-GAMEMODE_CMD=$(command -v gamemoderun)
-
 # Check Steam is installed
-if [[ -z $STEAM_CMD ]]; then
+if [[ -z $(command -v steam) ]]; then
   echo "Steam is not installed!"
   exit 1
 fi
 
+
 # Check GameScope is installed
-if [[ -z $GAMESCOPE_CMD ]]; then
+if [[ -z $(command -v gamescope) ]]; then
   echo "GameScope is not installed!"
   exit 1
 fi
 
-# Check if Steam is already running
-if pgrep $STEAM_CMD >/dev/null 2>&1; then
-  if [[ -n `ps ax | grep gamescopereaper | grep steam` ]]; then
+
+# Check if Steam is already running in desktop mode, close it and wait for
+if pgrep steam-runtime >/dev/null 2>&1; then
+  if [[ -n `ps ax | grep "$(command -v gamescope).*$(command -v steam)" | grep -v grep` ]]; then
     echo "Steam is alredy running with GameScope"
     exit 0
   else
-    setsid steam steam://exit
+    $(command -v steam) steam://exit
     echo "Closing Steam..."
-    while pgrep $STEAM_CMD >/dev/null 2>&1; do sleep 1; done
+    while pgrep steam-runtime >/dev/null 2>&1; do sleep 1; done
   fi
 fi
 
+
+# Check if GAMESCOPECMD is alredy set, get default values otherwise
+if [ -z "$GAMESCOPECMD" ]; then
+  
+  RESOLUTION="-W 1920 -H 1080"
+	if [ -n "$SCREEN_WIDTH" ] && [ -n "$SCREEN_HEIGHT" ]; then
+		RESOLUTION="-W $SCREEN_WIDTH -H $SCREEN_HEIGHT"
+	fi
+
+	INTERNAL_RESOLUTION=""
+	if [ -n "$INTERNAL_WIDTH" ] && [ -n "$INTERNAL_HEIGHT" ] ; then
+		INTERNAL_RESOLUTION="-w $INTERNAL_WIDTH -h $INTERNAL_HEIGHT"
+	fi
+
+  REFRESH="-r 60"
+  if [ -n "$INTERNAL_REFRESH" ]; then
+    REFRESH="-r $INTERNAL_REFRESH"
+  fi
+
+  ADAPTIVE_SYNC_OPTION=""
+	if [ -n "$ADAPTIVE_SYNC" ]; then
+		ADAPTIVE_SYNC_OPTION="--adaptive-sync"
+	fi
+
+  HDR_OPTIONS=""
+	if [ "$ENABLE_GAMESCOPE_HDR" == "1" ]; then
+		HDR_OPTIONS="--hdr-enabled --hdr-itm-enable --hdr-debug-force-output"
+	fi
+
+  MANGO_FLAG=""
+  if command -v mangoapp >/dev/null; then
+    MANGO_FLAG="--mangoapp"
+  fi
+
+  FULLSCREEN=""
+  if [[ "$*" =~ "--fullscreen"|"-f" ]]; then
+    FULLSCREEN="--fullscreen"
+  fi
+
+  GAMESCOPECMD="$(command -v gamescope) \
+    $RESOLUTION \
+    $INTERNAL_RESOLUTION \
+    $REFRESH \
+    $WINDOWED \
+    $ADAPTIVE_SYNC_OPTION \
+    $HDR_OPTIONS \
+    $MANGO_FLAG \
+    $FULLSCREEN \
+    --steam"
+fi
+
+
+# Check if STEAMCMD is set, set default Steam flags otherwise
+if [[ -z "$STEAMCMD" ]]; then
+  STEAMCMD="$(command -v steam) -steamdeck -steamos3 -gamepadui"
+fi
+
+
 # Launch Steam UI session with Gamescope
 echo "Launching Steam with Gamescope..."
-$GAMEMODE_CMD $GAMESCOPE_CMD -H 1440 -r 120 --fullscreen --hdr-enabled --hdr-debug-force-output --adaptive-sync --steam --mangoapp -- $STEAM_CMD -steamdeck -steamos3 -gamepadui
+LAUNCH_CMD="$GAMEMODE_CMD $GAMESCOPECMD -- $STEAMCMD"
+
+$LAUNCH_CMD
