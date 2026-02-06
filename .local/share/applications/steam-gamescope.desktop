@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=Steam
+Name=Steam (GameScope)
 Comment=Application for managing and playing games on Steam
 Comment[pt_BR]=Aplicativo para jogar e gerenciar jogos no Steam
 Comment[bg]=Приложение за ръководене и пускане на игри в Steam
@@ -27,8 +27,8 @@ Comment[th]=โปรแกรมสำหรับจัดการและ�
 Comment[tr]=Steam üzerinden oyun oynama ve düzenleme uygulaması
 Comment[uk]=Програма для керування іграми та запуску ігор у Steam
 Comment[vi]=Ứng dụng để quản lý và chơi trò chơi trên Steam
-Exec=env PROTON_ENABLE_WAYLAND=1 PROTON_ENABLE_HDR=1 ENABLE_HDR_WSI=1 /usr/bin/steam %U
-Icon=steam
+Exec=steam-gamescope --fullscreen %U
+Icon=steam-gamescope
 Terminal=false
 Type=Application
 Categories=Network;FileTransfer;Game;
